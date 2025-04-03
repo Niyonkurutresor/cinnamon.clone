@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./style.css" rel="stylesheet" />
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const navItems = document.querySelectorAll(".nav-item");
+
+        navItems.forEach((item) => {
+          const dot = item.querySelector(".dot");
+
+          item.addEventListener("mouseenter", (e) => {
+            const itemRect = item.getBoundingClientRect();
+            const mouseX = e.clientX;
+
+            const itemCenterX = itemRect.left + itemRect.width / 2;
+            const fromLeft = mouseX < itemCenterX;
+
+            dot.style.opacity = "0";
+            dot.style.transform = `translateX(${fromLeft ? "-10px" : "10px"})`;
+
+            dot.offsetHeight;
+
+            dot.style.opacity = "1";
+            dot.style.transform = "translateX(0)";
+          });
+
+          item.addEventListener("mouseleave", () => {
+            dot.style.opacity = "0";
+          });
+        });
+
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const closeButton = document.getElementById("close-button");
+
+        mobileMenuButton.addEventListener("click", () => {
+          mobileMenu.classList.remove("hidden");
+        });
+
+        closeButton.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <!-- navigation section -->
+    <section class="mx-6 md:mx-[2rem] lg:mx-[4rem]">
+      <nav
+        class="flex justify-between items-center py-4 bg-white bg-primary-500"
+      >
+        <div class="text-2xl font-bold">CINNAMON</div>
+        <!-- Desktop Menu -->
+        <div class="hidden font-bold lg:flex items-center space-x-8">
+          <a
+            href="#"
+            class="nav-item relative text-gray-800 hover:text-indigo-600 transition-colors duration-300"
+          >
+            Projects
+            <div
+              class="dot top-[1.5rem] w-[6px] h-[6px] absolute bottom-0 left-1/2 transform -translate-x-1/2 bg-indigo-600 rounded-full opacity-0 transition-all duration-300 mt-3"
+            ></div>
+          </a>
+          <a
+            href="#"
+            class="nav-item relative text-gray-800 hover:text-indigo-600 transition-colors duration-300"
+          >
+            Services
+            <div
+              class="dot top-[1.5rem] w-[6px] h-[6px] absolute bottom-0 left-1/2 transform -translate-x-1/2 bg-indigo-600 rounded-full opacity-0 transition-all duration-300 mt-3"
+            ></div>
+          </a>
+          <a
+            href="#"
+            class="nav-item relative text-gray-800 hover:text-indigo-600 transition-colors duration-300"
+          >
+            About Us
+            <div
+              class="dot top-[1.5rem] w-[6px] h-[6px] absolute bottom-0 left-1/2 transform -translate-x-1/2 bg-indigo-600 rounded-full opacity-0 transition-all duration-300 mt-3"
+            ></div>
+          </a>
+          <a
+            href="#"
+            class="nav-item relative text-gray-800 hover:text-indigo-600 transition-colors duration-300"
+          >
+            Careers
+            <div
+              class="dot top-[1.5rem] w-[6px] h-[6px] absolute bottom-0 left-1/2 transform -translate-x-1/2 bg-indigo-600 rounded-full opacity-0 transition-all duration-300 mt-3"
+            ></div>
+          </a>
+          <a
+            href="#"
+            class="nav-item relative text-gray-800 hover:text-indigo-600 transition-colors duration-300"
+          >
+            Blog
+            <div
+              class="dot top-[1.5rem] w-[6px] h-[6px] absolute bottom-0 left-1/2 transform -translate-x-1/2 bg-indigo-600 rounded-full opacity-0 transition-all duration-300 mt-3"
+            ></div>
+          </a>
+
+          <div class="flex items-center space-x-4">
+            <button
+              class="group cursor-pointer hover:bg-primary transition transform w-12 h-12 rounded-full border border-primary flex items-center justify-center"
+            >
+              <svg
+                class="w-6 h-6 text-primary"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <span
+                class="mx-auto absolute inset-0 -z-10 bg-primary scale-0 origin-center group-hover:scale-100 transition-transform duration-300 ease-out rounded-full"
+              ></span>
+            </button>
+            <button
+              class="group relative isolate overflow-hidden px-6 py-3 border-2 border-primary bg-primary text-white font-medium transition-all duration-300 cursor-pointer"
+            >
+              <span
+                class="mx-auto w-[130%] h-[120%] left-[-15%] absolute inset-0 -z-10 bg-white scale-0 origin-center group-hover:scale-100 transition-transform duration-300 ease-out rounded-full"
+              ></span>
+              <span
+                class="relative group-hover:text-indigo-600 transition-colors duration-200"
+                >Let's collaborate</span
+              >
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-button" class="lg:hidden">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+      </nav>
+
+      <!-- Mobile Menu (Hidden by default) -->
+      <div id="mobile-menu" class="fixed inset-0 bg-white z-50 hidden">
+        <div class="flex justify-between items-center p-4 border-b">
+          <div class="text-2xl font-bold">CINNAMON</div>
+          <button id="close-button" class="p-2">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </button>
+        </div>
+
+        <div class="flex flex-col p-4 space-y-6">
+          <a href="#" class="text-lg py-2">Home</a>
+          <a href="#" class="text-lg py-2">Projects</a>
+          <a href="#" class="text-lg py-2">Services</a>
+          <a href="#" class="text-lg py-2">About Us</a>
+          <a href="#" class="text-lg py-2">Careers</a>
+          <a href="#" class="text-lg py-2">Blog</a>
+          <a href="#" class="text-lg py-2">Let's collaborate</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- hero section  -->
+    <section class="mx-6 md:mx-[2rem] lg:mx-[4rem]">
+      <div>
+        <h1 class="text-3xl font-bold my-[2rem]">Human & The Machine</h1>
+        <p>
+          Our seasoned engineering and design teams leverage proven AI tools to
+          deliver high-quality results, faster. We use machines; machines don’t
+          use us.
+        </p>
+      </div>
+      <!-- companyies  -->
+      <div class="mt-[8rem] font-bold flex md:flex-row flex-col gap-16">
+        <!-- first card  -->
+        <div class="flex flex-col gap-6">
+          <img
+            class="h-[4rem]"
+            src="./pictures/deloitte.svg"
+            alt="deloitte logo"
+          />
+          <p>TOP FAST 5- Central Europe 2023</p>
+        </div>
+        <!-- second card -->
+        <div class="flex flex-col gap-6">
+          <img
+            class="h-[4rem]"
+            src="./pictures/clutch.svg"
+            alt="deloitte logo"
+          />
+          <p>TOP FAST 5- Central Europe 2023</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- details section  -->
+    <section class="mx-6 md:mx-[2rem] lg:mx-[4rem] mt-[4rem] md:mt-[7rem]">
+      <!-- first card -->
+      <div
+        class="relative lg:flex justify-between items-start lg:bg-[#e42af1] lg: p-lg lg:text-white"
+      >
+        <!-- image -->
+        <div
+          class="order-1 lg:order-2 bg-secondary flex justify-center items-start h-2/3 px-3"
+        >
+          <img class="h-[40%]" src="./pictures/details1.png" alt="" />
+        </div>
+        <!-- content -->
+        <div class="order-2 lg:order-1">
+          <div class="uppercase flex gap-4 mt-6 mb-8 font-bold">
+            <p>PRODUCT DESIGN</p>
+            <p>WEB DEVELOPMENT</p>
+          </div>
+          <h2 class="text-2xl font-bold mb-1.5">Engage & Decide</h2>
+          <p class="text-graysh">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
+            nihil veritatis amet eos commodi consequatur iusto impedit
+            dignissimos inventore ducimus!
+          </p>
+          <!-- user profile -->
+          <div class="lg:absolute mt-4 lg:bottom-4">
+            <div class="flex gap-6">
+              <div class="w-[6rem] flex justify-center items-start">
+                <img
+                  class="rounded-full shadow"
+                  src="./pictures/user-one.jpeg"
+                  alt="user profile"
+                />
+              </div>
+              <div class="flex flex-col">
+                <h3 class="text-xl font-bold mb-1.5">
+                  Great Collaboration through the whole process.
+                </h3>
+                <p>Alex whiteside</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
