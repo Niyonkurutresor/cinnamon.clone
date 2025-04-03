@@ -4,6 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./style.css" rel="stylesheet" />
+    <style>
+      @keyframes marquee-left {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+      @keyframes marquee-right {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+      .animate-marquee-left {
+        animation: marquee-left 30s linear infinite;
+      }
+      .animate-marquee-right {
+        animation: marquee-right 30s linear infinite;
+      }
+    </style>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const navItems = document.querySelectorAll(".nav-item");
@@ -223,6 +247,67 @@
       </div>
     </section>
 
+    <div class="space-y-8 p-4">
+      <!-- Left-scrolling marquee -->
+      <div class="overflow-hidden bg-gray-100 p-2 rounded">
+        <div class="flex animate-marquee-left whitespace-nowrap">
+          <span class="mx-4 text-lg font-bold">ASTING ROUTER</span>
+          <span class="mx-4 text-lg">play $gc*</span>
+          <span class="mx-4 text-lg">crowdsorsa</span>
+          <span class="mx-4 text-lg">fibna</span>
+          <span class="mx-4 text-lg font-bold">BOTS.</span>
+          <span class="mx-4 text-lg">pingo</span
+          ><span class="mx-4 text-lg font-bold">ASTING ROUTER</span>
+          <span class="mx-4 text-lg">play $gc*</span>
+          <span class="mx-4 text-lg">crowdsorsa</span>
+          <span class="mx-4 text-lg">fibna</span>
+          <span class="mx-4 text-lg font-bold">BOTS.</span>
+          <span class="mx-4 text-lg">pingo</span
+          ><span class="mx-4 text-lg font-bold">ASTING ROUTER</span>
+          <span class="mx-4 text-lg">play $gc*</span>
+          <span class="mx-4 text-lg">crowdsorsa</span>
+          <span class="mx-4 text-lg">fibna</span>
+          <span class="mx-4 text-lg font-bold">BOTS.</span>
+          <span class="mx-4 text-lg">pingo</span
+          ><span class="mx-4 text-lg font-bold">ASTING ROUTER</span>
+          <span class="mx-4 text-lg">play $gc*</span>
+          <span class="mx-4 text-lg">crowdsorsa</span>
+          <span class="mx-4 text-lg">fibna</span>
+          <span class="mx-4 text-lg font-bold">BOTS.</span>
+          <span class="mx-4 text-lg">pingo</span>
+        </div>
+      </div>
+
+      <!-- Right-scrolling marquee -->
+      <div class="overflow-hidden bg-gray-100 p-2 rounded">
+        <div class="flex animate-marquee-right whitespace-nowrap">
+          <span class="mx-4 text-lg font-bold">ASTING ROUTER</span>
+          <span class="mx-4 text-lg">play $gc*</span>
+          <span class="mx-4 text-lg">crowdsorsa</span>
+          <span class="mx-4 text-lg">fibna</span>
+          <span class="mx-4 text-lg font-bold">BOTS.</span>
+          <span class="mx-4 text-lg">pingo</span>
+          <span class="mx-4 text-lg font-bold">ASTING ROUTER</span>
+          <span class="mx-4 text-lg">play $gc*</span>
+          <span class="mx-4 text-lg">crowdsorsa</span>
+          <span class="mx-4 text-lg">fibna</span>
+          <span class="mx-4 text-lg font-bold">BOTS.</span>
+          <span class="mx-4 text-lg">pingo</span>
+          <span class="mx-4 text-lg font-bold">ASTING ROUTER</span>
+          <span class="mx-4 text-lg">play $gc*</span>
+          <span class="mx-4 text-lg">crowdsorsa</span>
+          <span class="mx-4 text-lg">fibna</span>
+          <span class="mx-4 text-lg font-bold">BOTS.</span>
+          <span class="mx-4 text-lg">pingo</span>
+          <span class="mx-4 text-lg font-bold">ASTING ROUTER</span>
+          <span class="mx-4 text-lg">play $gc*</span>
+          <span class="mx-4 text-lg">crowdsorsa</span>
+          <span class="mx-4 text-lg">fibna</span>
+          <span class="mx-4 text-lg font-bold">BOTS.</span>
+          <span class="mx-4 text-lg">pingo</span>
+        </div>
+      </div>
+    </div>
     <!-- details section  -->
     <section
       class="mx-6 md:mx-[2rem] lg:mx-[4rem] mt-[4rem] md:mt-[7rem] flex flex-col gap-[8rem]"
@@ -605,9 +690,15 @@
           </p>
 
           <button
-            class="bg-indigo-600 text-white px-8 py-3 font-medium rounded hover:bg-indigo-700 transition duration-300"
+            class="group rounded-sm relative isolate overflow-hidden px-6 py-3 border-2 border-primary bg-primary text-white font-medium transition-all duration-300 cursor-pointer"
           >
-            Check more details
+            <span
+              class="mx-auto w-[130%] h-[120%] left-[-15%] absolute inset-0 -z-10 bg-white scale-0 origin-center group-hover:scale-100 transition-transform duration-300 ease-out rounded-full"
+            ></span>
+            <span
+              class="relative group-hover:text-indigo-600 transition-colors duration-200"
+              >Check more details</span
+            >
           </button>
         </div>
 
@@ -801,9 +892,15 @@
             in both directions.
           </p>
           <button
-            class="mt-6 bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 px-6 rounded transition duration-200"
+            class="group mt-2 rounded-sm relative isolate overflow-hidden px-6 py-3 border-2 border-primary bg-primary text-white font-medium transition-all duration-300 cursor-pointer"
           >
-            See how it works
+            <span
+              class="mx-auto w-[130%] h-[120%] left-[-15%] absolute inset-0 -z-10 bg-white scale-0 origin-center group-hover:scale-100 transition-transform duration-300 ease-out rounded-full"
+            ></span>
+            <span
+              class="relative group-hover:text-indigo-600 transition-colors duration-200"
+              >See how it works</span
+            >
           </button>
         </div>
 
@@ -883,9 +980,15 @@
           </p>
 
           <button
-            class="bg-indigo-600 text-white px-8 py-3 font-medium rounded hover:bg-indigo-700 transition duration-300"
+            class="group rounded-sm relative isolate overflow-hidden px-6 py-3 border-2 border-primary bg-primary text-white font-medium transition-all duration-300 cursor-pointer"
           >
-            Check more details
+            <span
+              class="mx-auto w-[130%] h-[120%] left-[-15%] absolute inset-0 -z-10 bg-white scale-0 origin-center group-hover:scale-100 transition-transform duration-300 ease-out rounded-full"
+            ></span>
+            <span
+              class="relative group-hover:text-indigo-600 transition-colors duration-200"
+              >Check more details</span
+            >
           </button>
         </div>
 
@@ -1182,9 +1285,15 @@
           </div>
 
           <button
-            class="bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-6 rounded-md transition duration-200"
+            class="group rounded-sm relative isolate overflow-hidden px-6 py-3 border-2 border-primary bg-primary text-white font-medium transition-all duration-300 cursor-pointer"
           >
-            Ask us anything
+            <span
+              class="mx-auto w-[130%] h-[120%] left-[-15%] absolute inset-0 -z-10 bg-white scale-0 origin-center group-hover:scale-100 transition-transform duration-300 ease-out rounded-full"
+            ></span>
+            <span
+              class="relative group-hover:text-indigo-600 transition-colors duration-200"
+              >Ask us anything</span
+            >
           </button>
         </div>
       </section>
@@ -1257,9 +1366,15 @@
                 class="bg-transparent border-b border-gray-600 py-2 mb-4 focus:outline-none focus:border-white"
               />
               <button
-                class="bg-indigo-600 hover:bg-indigo-700 text-white py-3 transition duration-200"
+                class="group relative isolate overflow-hidden px-6 py-3 border-2 border-primary bg-primary text-white font-medium transition-all duration-300 cursor-pointer"
               >
-                Subscribe
+                <span
+                  class="mx-auto w-[130%] h-[120%] left-[-15%] absolute inset-0 -z-10 bg-white scale-0 origin-center group-hover:scale-100 transition-transform duration-300 ease-out rounded-full"
+                ></span>
+                <span
+                  class="relative group-hover:text-indigo-600 transition-colors duration-200"
+                  >Subscribe</span
+                >
               </button>
             </div>
           </div>
