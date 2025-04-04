@@ -56,6 +56,9 @@
     --spacing-xl: 2rem;
     --spacing-2xl: 3rem;
     --spacing-3xl: 4rem;
+    --spacingx-3xl: 0 4rem 0 4rem;
+    --spacingy-3xl: 4rem 0 4rem 0;
+    --spacingx-container: 12rem;
 
     /* Border radius */
     --radius-sm: 0.125rem;
@@ -392,7 +395,16 @@
   .m-3xl {
     margin: var(--spacing-3xl);
   }
+  .mx-3xl {
+    margin: var(--spacingx-3xl);
+  }
+  .my-3xl {
+    margin: var(--spacingy-3xl);
+  }
 
+  .lg-mx-container {
+    margin: var(--spacingx-container);
+  }
   /* Shadow */
   .shadow-sm {
     box-shadow: var(--shadow-sm);
@@ -496,6 +508,8 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
+
+  /* fond*/
 
   /* Gradient text */
   .text-gradient {
